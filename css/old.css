@@ -1,0 +1,344 @@
+.help {
+	cursor: help;
+	border-bottom: dotted 1px #666;
+}
+
+.button1,
+.input_field {
+	padding: 3px;
+	color: #000000;
+	font-size: 0.9em;
+	border: 1px solid #b3b9c4;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	background: #ffffff url(./images/input_bg.gif) repeat-x;
+}
+
+.button1, 
+.button2 {
+	cursor: pointer;
+}
+
+.button1 {
+	padding: 4px;
+	text-align: center;
+}
+
+.button2, 
+a.button2 {
+	border: 0;
+	color: #000000;
+	margin-left: 10px;
+	background: #ffffff;
+	text-decoration: none;
+	vertical-align: middle;
+	border-bottom: 1px dashed #c00;
+}
+
+a.button1:link, 
+a.button1:hover,
+a.button1:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+.button1:hover,
+.button1:active,
+.input_field:focus, 
+.input_field:hover {
+	border: 1px solid #7e8993;
+}
+
+.align_left {
+	float: left;
+}
+
+.align_right {
+	float: right;
+}
+
+.align_left_mfix {
+	float: left;
+	padding-top: 2px;
+}
+
+.align_right_mfix {
+	float: right;
+	padding-top: 2px;
+}
+
+.text_align_right {
+	text-align: right;	
+}
+
+.text_align_left {
+	text-align: left;
+}
+
+.text_align_center {
+	text-align: center;
+}
+
+#upload_options {
+	width: 350px;
+	padding: 5px;
+	margin-left: 12px;
+	background: #f1f1f1;
+	border: 1px dotted #333;
+}
+
+.disk_loadbar {
+	width: 400px;
+	height: 16px;
+	padding: 1px;
+	border: 1px solid #999;
+}
+
+.slideout_warning {
+	z-index: 3;
+	float: left;
+	width: 100%;
+	height: 58px;
+	margin-bottom: -5px;
+	background: #FFFFFF url(./images/slideout_warning.png) repeat-x;
+}
+
+.slideout_warning .picture {
+	float: left;
+	width: 46px;
+	height: 43px;
+	margin-top: 5px;
+	margin-left: 10px;
+	background: url(./images/warning_sign.png) top left no-repeat;
+}
+
+.slideout_warning .ie_picture {
+	width: 39px;
+	background: url(./images/internet_explorer.png) top left no-repeat;
+}
+
+.slideout_warning .info {
+	float: left;
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.slideout_warning .info h1 {
+	font-size: 1.40em;
+	margin-bottom: 3px;
+}
+
+.lightbox_background {
+	top: 0; 
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	opacity: 0.80;
+	color: #ffffff;
+	position: absolute;
+	background: #000000;
+	-moz-opacity: 0.80px;
+	filter: alpha(opacity=80);
+	height: 0; /* This value will auto be set by jQuery */
+}
+
+.lightbox_main {
+	z-index: 3;
+	width: 515px;
+	overflow: hidden;
+	position: absolute;
+	background: #ffffff;
+}
+
+.new_version_box {
+	color: #FFF; 
+	background: #C00; 
+	padding-top: 20px;
+	text-align: center; 
+	padding-bottom: 20px;
+}
+
+.new_version_box a:link,
+.new_version_box a:hover,
+.new_version_box a:visited {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.message_box {
+	padding: 10px;
+	text-align: center;
+	margin: 5px auto 5px;
+	border: 1px solid #bfc8e3;
+	background: #d8dceb url(./images/blue_box_bg.gif) repeat-x top left;
+}
+
+.message_box h1 {
+	color: #ff0c00;
+	font-size: 1.7em;
+	font-weight: 700;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.pagination {
+	height: 1%;
+	width: auto;
+	float: right;
+	padding-top: 2px;
+	font-size: 0.85em;
+}
+
+.pagination_footer {
+	margin: 12px 0 25px 0;
+}
+
+.pagination strong {
+	margin: 0 2px;
+	padding: 0 2px;
+	color: #ffffff;
+	font-size: 0.85em;
+	background: #4692bf;
+	font-weight: normal;
+	border: 1px solid #4692bf;
+}
+
+.pagination a:link, 
+.pagination a:active,
+.pagination a:visited {
+	margin: 0 2px;
+	padding: 0 2px;
+	color: #5c758c;
+	font-size: 0.85em;
+	background: #ecedee;
+	font-weight: normal;
+	text-decoration: none;
+	border: 1px solid #b4bac0;
+}
+
+.pagination a:hover {
+	color: #ffffff;
+	background: #368ad2;
+	border-color: #368ad2;
+	text-decoration: none;
+}
+
+#lightbox{
+	background-color:#eee;
+	}
+#lightboxDetails{
+	font-size: 0.8em;
+	padding-top: 0.4em;
+	}
+#lightboxCaption{ float: left; }
+#keyboardMsg{ float: right; }
+#closeButton{ top: 5px; right: 5px; }
+
+#lightbox img{ border: none; clear: both;}
+#overlay img{ border: none; }
+
+#overlay{ background-image: url(./images/overlay.png); }
+
+ul					{ list-style: none; }
+ul.jd_menu                         { position: relative; }
+ul.jd_menu li                      { float: left; cursor: pointer; white-space: nowrap; margin: 0px 2px 0 2px; }
+ul.jd_menu a:hover		            { color: #000; }
+ul.jd_menu a:active                { color: #ffa500; }
+ul.jd_menu li a                    {  display: block; padding: 3px; margin-left: 0; border-right: 1px font-size: 0.9em; color: #000; text-align: left;background: #eff3f7;font-family: Arial, Verdana, Helvetica, sans-serif; border-bottom: 1px solid #ddd;	}
+ul.jd_menu li:last-child a         { border-right: none; } /* Doesn't work in IE */
+ul.jd_menu li.hover,
+ul.jd_menu li:hover                { background: #f6f6f6; color: black; position: relative;}
+ul.jd_menu li.hover a              { color: blue; }
+ul.jd_menu ul 						{ visibility: hidden; position: absolute; top: 100%; left: 0; }
+ul.jd_menu ul li 					{ font-weight: normal; background: #f6f6f6; color: #000;border-bottom: 1px solid #ccc; float: none;  }
+                                    /* IE 6 & 7 Needs Inline Block */
+ul.jd_menu ul li a					{ margin-left: 5px; border-right: none;  display: inline-block; } 
+ul.jd_menu ul ul 					{ left: 100%; top: 0; }
+ul.jd_menu li:hover > ul 			{ visibility: visible; }
+
+ul.jd_menu li.item {
+	padding: 3px;
+	margin-left: 0;
+	color: #000000;
+	display: block;
+	font-size: 0.9em;
+	text-align: left;	
+	background: #eff3f7;
+	border-bottom: 1px solid #ddd;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+
+}
+
+ul.jd_menu li.header {
+	padding: 2px;
+	font-size: 0.8em;
+	font-weight: 900;
+	text-align: center;
+	background: #e1e2e5;
+	border-bottom: 1px solid #ddd;
+}
+
+.table_header {
+	height: 30px;
+	color: #ffffff;
+	font-size: 0.9em;
+	text-align: center;
+    padding: 0 5px 0 5px;
+	background: #006699 url(./images/tbl_top_bg.gif) repeat-x;
+}
+
+th a:link,
+th a:hover,
+th a:visited, 
+.table_header a:link,
+.table_header a:hover,
+.table_header a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+td span {
+	font-weight: 700;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+td span.arial {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+
+td .explain {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+.table_footer {
+	height: 25px;
+	padding: 2px;
+	color: #ffffff;
+	text-align: center;
+	background: #417db7 url(./images/tbl_foot_bg.gif) repeat-x ;
+}
+
+.table_border {
+	width: 100%;
+	border: 1px solid #345487;
+}
+
+h1 {
+	color: #333333;
+	font-size: 1.7em;
+	font-weight: normal;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+pre {
+    line-hight: 0;
+    font-family: Courier;
+}
+
+p, 
+form {
+	display: inline;
+}
+
+img {
+	border: 0;
+}

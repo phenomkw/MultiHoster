@@ -1,0 +1,17 @@
+/* ======================================== \
+// Package: Mihalism Multi Host
+// Version: 5.0.4
+// Copyright (c) 2007-2012 Mihalism Technologies
+// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
+// LTE: 2012 TheKPM
+// LTE: 2012 PhenomKW
+// ======================================= */
+
+body {
+	margin: 10px;
+	color: #000000;
+	font-size: 75%;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	background: #282828 url(./images/main_bg.png) repeat;
+}
+

@@ -1,0 +1,2 @@
+this.imagePreview=function(){xOffset=10;yOffset=30;$("a.preview").hover(function(){this.t=this.title;this.title="";var a=this.t!=""?"<br/>"+this.t:"";$("#preview_it").html("<div id='preview' style='background-color:#ffffff;padding:4px;border:1px solid;'><img src='"+this.name+"' alt='Image preview' width='250' />"+a+"</div>")},function(){this.title=this.t;$("#preview_it").empty()});$("a.preview").mousemove(function(a){$("#preview_it").css("top",a.pageY-xOffset+"px").css("left",a.pageX+yOffset+"px")})};
+$(document).ready(function(){imagePreview()});

@@ -1,0 +1,14 @@
+$(document).ready(function(){
+	$('.btn-setting').click(function(e){
+		e.preventDefault();
+		$('#myModal').modal('show');
+	});
+	$('.pwreset').click(function(e){
+		e.preventDefault();
+		$('#rstpw').modal('show');
+	});
+	$('.abtch').click(function(e){
+		e.preventDefault();
+		$('#aboutCharisma').modal('show');
+	});
+});
