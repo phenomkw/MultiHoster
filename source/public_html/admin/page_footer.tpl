@@ -21,9 +21,7 @@
 		<footer>
 			<p class="pull-left">
 			</p>
-			<p class="pull-right">Powered by Mihalism Multi Host v<# VERSION #><br />
-			&copy; 2010-2012 <a href="http://www.hostmine.us/mihalism/" target="_blank"><strong>Mihalism Technologies</strong></a> & <a href="http://www.mihalismscript.com" target="_blank"><strong>Mihalism Script</strong></a>
-			</p>
+			<p class="pull-right">Powered by MultiHoster v<# VERSION #> with <a href=\"#\" class=\"abtch\">Charisma</a><br />&copy; 2010-2013 <a href=\"http://www.hostmine.us/mihalism/\" target=\"_blank\"><strong>Mihalism Technologies</strong></a> & <a href=\"http://www.multihosterscript.com\" target=\"_blank\"><strong>MultiHoster Script</strong></a></p>
 		</footer>
 		
 	</div><!--/.fluid-container-->

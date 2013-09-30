@@ -46,17 +46,21 @@ $(function() {
 });
 
 </script>
-
 			<div class="row-fluid">
 				<div class="box span13">
 					<div class="box-header well">
 						<h2><i class="icon-home"></i>
-<if="$mmhclass->info->is_user == false">
-<strong><# SITE_NAME #></strong>, Please <b>Log in</b> or <b>Register</b> above to use all features!
-<else>
-<strong><# SITE_NAME #></strong>
-</endif>
+<strong>Welcome to <# SITE_NAME #>!</strong>
 						</h2>
+					</div>
+					<br/>
+					<div class="alert alert-block " style="width: 90%; margin-left: auto; margin-right: auto;">
+							<h4 class="alert-heading">Warning!</h4>
+							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
+					<if="$mmhclass->info->is_user == false">
+							<h4 class="alert-heading">Guest</h4>
+							<p>Please login or Register for a account to access all of our features.</p>
+					</endif>
 					</div>
 					<div class="box-content">
 <form name='image_uploads_form' id='upload_form' method='post' action='upload.php'>
@@ -71,8 +75,7 @@ Select an image file to upload. You are allowed to upload <b><# MAX_SIMUL_FILES 
 </td>
 	<td valign="top">
 <input type="hidden" name="session" value="<# RAND_SES_VAR #>" />
-<a class="btn btn-primary" href="index.php?url=1">URL Upload</a>&nbsp;<a class="btn btn-primary" href="index.php?zip">Zip Upload</a><br /><br />
-Max filesize is set at: <strong><# MAX_FILESIZE #></strong> per image file. <if="$mmhclass->info->is_user == false"><strong>Register an account for more!</strong></endif>
+Max filesize is set at: <strong><# MAX_FILESIZE #></strong> per image file.
 <br />
 Allowed File Extensions: <# FILE_EXTENSIONS #>
 <br />
@@ -80,9 +83,9 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
         <if="$mmhclass->info->is_user == true">
                     &bull; Upload Type: <label class="radio"><input type="radio" name="private_upload" value="0" checked="checked" />Public</label> <label class="radio"><input type="radio" name="private_upload" value="1" />Private</label>
                     <br /><br />
-        </endif>
 	&bull; Output Layout: <label class="radio"><input type="radio" name="upload_type" value="ulfy_standard" <# STANDARD_UPLOAD_YES #> /> <span onclick="toggle_lightbox('index.php?layoutprev=std', 'upload_layout_preview_lightbox');" title="Click to preview" class="help">Standard</span></label> <label class="radio"><input type="radio" name="upload_type" value="ulfy_boxed" <# BOXED_UPLOAD_YES #> /> <span onclick="toggle_lightbox('index.php?layoutprev=bx', 'upload_layout_preview_lightbox');" title="Click to preview" class="help">Boxed</span></label>
 	  <br /><br />
+	  </endif>
 	  <if="$mmhclass->info->is_user == true && $mmhclass->templ->templ_globals['hide_upload_to'] == false">
                    &bull; Upload To: 
                    <select name="upload_to" style="width: 220px;">
@@ -95,6 +98,9 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 		    &bull; <a href="javascript:void(0);" onclick="toggle_lightbox('users.php?act=albums-c', 'new_album_lightbox');" style="font-size:0.8em;">Create New Album</a>
 		   <br />
                 </endif>
+                 <if="$mmhclass->info->is_user == false">
+                 <br/>
+                 <else>
                  &bull; Resize Images: 
                 <select name="image_resize" style="width: 220px;">
 			<option value="0" selected="selected">Do Not Resize</option>
@@ -108,7 +114,7 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 			<option value="7">1280x1024 (19-inch monitor)</option>
 			<option value="8">1600x1200 (21-inch monitor)</option>
                 </select>
-        </div><br /><br />
+        </div><br /><br /></endif>
 	<if="$mmhclass->info->config['recaptcha_guest'] == '1' && $mmhclass->info->is_user == false">
                 <div style="width:100%;text-align:left;"><span>Security Code:</span><# CAPTCHA_CODE #></div>
                 <br /><br />
@@ -193,25 +199,21 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 			<div class="row-fluid">
 				<div class="box span13">
 					<div class="box-header well">
-						<h2><i class="icon-home"></i>
-<strong><# SITE_NAME #> - URL Upload</strong>
-						</h2>
+						<h2><i class="icon-home"></i><strong>Welcome to <# SITE_NAME #>! - URL Upload</strong></h2>
+					</div>
+					<br/>
+					<div class="alert alert-block " style="width: 90%; margin-left: auto; margin-right: auto;">
+							<h4 class="alert-heading">Warning!</h4>
+							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
 					</div>
 					<div class="box-content">
 <form action="upload.php" method="post" id="upload_form" enctype="multipart/form-data">
 <table width="100%" cellpadding="2" cellspacing="1">
 	<tr>
 		<td valign="top">
-		
-<if="$mmhclass->info->is_user == false">
-Please <b>Log in</b> or <b>Register</b> above to use all features!
 <span id="instructions">Enter the URL(s) of an image file to upload</span>
 <br />
 <br />
-<else>
-Enter the URL(s) of an image file to upload.
-<br />
-</endif>
 
 		<div id="upload_types">
         	<div id="normal_upload">
@@ -308,8 +310,6 @@ Enter the URL(s) of an image file to upload.
         <br /><br /></endif>
 </td>
 	<td valign="top">
-<a class="btn btn-primary" href="index.php">Normal Upload</a>&nbsp;<a class="btn btn-primary" href="index.php?zip">Zip Upload</a><br /><br />
-
 		Max filesize is set at: <# MAX_FILESIZE #> per image file.<br />
 		Allowed File Extensions: <# FILE_EXTENSIONS #><br /><br />
 		                <if="$mmhclass->info->is_user == true">
@@ -454,22 +454,21 @@ Enter the URL(s) of an image file to upload.
 			<div class="row-fluid">
 				<div class="box span12">
 					<div class="box-header well">
-						<h2><i class="icon-info-sign"></i> Zip Upload</h2>
+						<h2><i class="icon-home"></i>Welcome to <# SITE_NAME #>! - Zip Upload</h2>
+					</div>
+					<br/>
+					<div class="alert alert-block " style="width: 90%; margin-left: auto; margin-right: auto;">
+							<h4 class="alert-heading">Warning!</h4>
+							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
 					</div>
 					<div class="box-content">
-<br />
-
-Welcome to <# SITE_NAME #>, Please <b>Log in</b> or <b>Register</b> above to use all features!
-
-<br /><br />	
-
-Select a zip file to upload - <a href="index.php">Normal Upload</a> - <a href="index.php?url=1">URL Upload</a><br />
-<br />
-
 <form action="upload.php" method="post" id="upload_form" enctype="multipart/form-data">
 <table width="100%">
 	<tr>
 		<td valign="top">
+		<span id="instructions">Choose a ZIP file to upload!</span>
+		<br />
+		<br />
 			<input name="userfile" type="file" size="50" /> <br />
 		</td>
 		<td width="425" valign="top">
@@ -522,8 +521,7 @@ Select a zip file to upload - <a href="index.php">Normal Upload</a> - <a href="i
 						<div class="clearfix"></div>
 					</div>
 				</div>
-			</div>
-<if="$mmhclass->info->config['show_random'] == '1'">
+			</div><if="$mmhclass->info->config['show_random'] == '1'">
 			<div class="row-fluid">
 				<div class="box span12">
 					<div class="box-header well">
@@ -558,13 +556,26 @@ Select a zip file to upload - <a href="index.php">Normal Upload</a> - <a href="i
 
 <!-- BEGIN: USER UPLOAD LOGIN PAGE -->
 <template id="upl_login_page">
+<div class="row-fluid">
+				<div class="box span12">
+					<div class="box-header well">
+						<h2><i class="icon-home"></i>
+						<strong>Welcome to <# SITE_NAME #>!</strong>
+						</h2>
+					</div>
+					<br/>
+					<div class="alert alert-block " style="width: 90%; margin-left: auto; margin-right: auto;">
+							<h4 class="alert-heading">Warning!</h4>
+							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
+					<if="$mmhclass->info->is_user == false">
+							<h4 class="alert-heading">Guest</h4>
+							<p>Sorry, but uploading is restricted to registered users only. Please login with your Username and Password..</p>
+					</endif>
+					</div>						
 		<div class="container-fluid">
 			
 			<div class="row-fluid">
 				<div class="well span4 center login-box">
-					<div class="alert alert-info">
-						Sorry, but uploading is restricted to registered users.<br />Please login with your Username and Password.
-					</div>
 <form class="form-horizontal" action="users.php?act=login-d" method="post">
 	<input type="hidden" name="return" value="<# RETURN_URL #>" />
 						<fieldset>
@@ -591,6 +602,38 @@ Select a zip file to upload - <a href="index.php">Normal Upload</a> - <a href="i
 				</div><!--/span-->
 			</div><!--/row-->
 				</div><!--/fluid-row-->
+				
+				</div>
+						</div>
+<if="$mmhclass->info->config['show_random'] == '1'">
+			<div class="row-fluid">
+				<div class="box span12">
+					<div class="box-header well">
+						<h2><i class="icon-info-sign"></i> Random Images</h2>
+					</div>
+					<div class="box-content">
+<table width="100%">
+
+	<tr>		<td><div id="rnd_imgs"><center>    <while id="random_images_whileloop">
+    <# RANDOM_IMAGES #>
+    </endwhile></center></div>
+    <script type="text/javascript">
+      TopUp.addPresets({
+        "#rnd_imgs a": {
+          title: "Gallery {alt} ({current} of {total})",
+          group: "rnd_imgs",
+	  layout: "quicklook",
+          readAltText: 1,
+          shaded: 1
+        }
+      });
+    </script>
+</td></tr></table>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+</endif>
 
 </template>
 <!-- END: USER UPLOAD LOGIN PAGE -->

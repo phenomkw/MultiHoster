@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1254301575 - Wednesday, September 30, 2009, 05:06:15 AM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 	
 	/* List of language files editable by language editor. */
@@ -29,7 +30,7 @@
 		17 => "profile.php",
 	);
 	
-	/* List of template files used by Mihalism Multi Host.
+	/* List of template files used by MultiHoster.
 	The list is not really implemented in any features yet,
 	it's just in this file so when it is, we are ready. */
 	
@@ -58,16 +59,16 @@
 	
 	/* Disabling spider logging can speed up large hosts. */
 	
-	define("LOG_ROBOTS", true);
+	define("LOG_ROBOTS", false);
 	
 	/* Versions. */
 	
 	define("PHPSAPI", PHP_SAPI);
-	define("COREVERSION", "6.0.0-alpha");
+	define("COREVERSION", "6.0.0");
 	define("PHPVERSION", PHP_VERSION);
 	
 	/* Just to shut up a PHP error about timezone not being set.
-	Mihalism Multi Host only sets the timezone below if there
+	MultiHoster only sets the timezone below if there
 	is not any already configured to be used in php.ini file. */
 	
 	define("DEFAULT_TIME_ZONE", "GMT");	
@@ -141,20 +142,20 @@
 	/* MySQL Table Names. It is easier to use multiple
 	databases instead of editing a file of table names. */
 				
-	define("MYSQL_FILE_LOGS_TABLE", "mmh_file_logs");
-	define("MYSQL_USER_INFO_TABLE", "mmh_user_info");
-	define("MYSQL_SITE_CACHE_TABLE", "mmh_site_cache");
-	define("MYSQL_ROBOT_INFO_TABLE", "mmh_robot_info");
-	define("MYSQL_ROBOT_LOGS_TABLE", "mmh_robot_logs");
-	define("MYSQL_BAN_FILTER_TABLE", "mmh_ban_filter");
-	define("MYSQL_ADMIN_CACHE_TABLE", "mmh_admin_cache");
-	define("MYSQL_FILE_RATINGS_TABLE", "mmh_file_ratings");
-	define("MYSQL_FILE_STORAGE_TABLE", "mmh_file_storage");
-	define("MYSQL_SITE_SETTINGS_TABLE", "mmh_site_settings");
-	define("MYSQL_USER_SESSIONS_TABLE", "mmh_user_sessions");
-	define("MYSQL_GALLERY_ALBUMS_TABLE", "mmh_gallery_albums");
-	define("MYSQL_USER_PASSWORDS_TABLE", "mmh_user_passwords");
-	define("MYSQL_ULFY_TABLE", "mmh_pict_ulfy");
-	define("MYSQL_GALLERY_SESSION_TABLE", "mmh_gallery_sessions");
+	define("MYSQL_FILE_LOGS_TABLE", "file_logs");
+	define("MYSQL_USER_INFO_TABLE", "user_info");
+	define("MYSQL_SITE_CACHE_TABLE", "site_cache");
+	define("MYSQL_ROBOT_INFO_TABLE", "robot_info");
+	define("MYSQL_ROBOT_LOGS_TABLE", "robot_logs");
+	define("MYSQL_BAN_FILTER_TABLE", "ban_filter");
+	define("MYSQL_ADMIN_CACHE_TABLE", "admin_cache");
+	define("MYSQL_FILE_RATINGS_TABLE", "file_ratings");
+	define("MYSQL_FILE_STORAGE_TABLE", "file_storage");
+	define("MYSQL_SITE_SETTINGS_TABLE", "site_settings");
+	define("MYSQL_USER_SESSIONS_TABLE", "user_sessions");
+	define("MYSQL_GALLERY_ALBUMS_TABLE", "gallery_albums");
+	define("MYSQL_USER_PASSWORDS_TABLE", "user_passwords");
+	define("MYSQL_ULFY_TABLE", "pict_ulfy");
+	define("MYSQL_GALLERY_SESSION_TABLE", "gallery_sessions");
 
 ?>

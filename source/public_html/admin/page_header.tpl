@@ -19,7 +19,7 @@
     <title>Administration Control Panel</title>
 
 	<!-- The styles -->
-	<link id="bs-css" href="css/bootstrap-simplex.css" rel="stylesheet">
+	<link id="bs-css" href="css/bootstrap-slate.css" rel="stylesheet">
 	<style type="text/css">
 	  body {
 		padding-bottom: 40px;
@@ -144,65 +144,10 @@
 	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container-fluid">
-				<a class="brand" href="admin.php"> <img alt="" src="img/logo20.png" /> <span>MultiHoster ACP</span></a>
-
-				<!-- theme selector starts -->
-				<div class="btn-group pull-right theme-container" >
-					<a class="btn dropdown-toggle" data-toggle="dropdown" href="">
-						<i class="icon-eye-open"></i><span class="hidden-phone"> Change Theme</span>
-						<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu" id="themes">
-						<li><a data-value="classic" href="#"><i class="icon-blank"></i> Classic</a></li>
-						<li><a data-value="cerulean" href="#"><i class="icon-blank"></i> Cerulean</a></li>
-						<li><a data-value="cyborg" href="#"><i class="icon-blank"></i> Cyborg</a></li>
-						<li><a data-value="redy" href="#"><i class="icon-blank"></i> Redy</a></li>
-						<li><a data-value="journal" href="#"><i class="icon-blank"></i> Journal</a></li>
-						<li><a data-value="simplex" href="#"><i class="icon-blank"></i> Simplex</a></li>
-						<li><a data-value="slate" href="#"><i class="icon-blank"></i> Slate</a></li>
-						<li><a data-value="spacelab" href="#"><i class="icon-blank"></i> Spacelab</a></li>
-						<li><a data-value="united" href="#"><i class="icon-blank"></i> United</a></li>
-					</ul>
-				</div>
-				<!-- theme selector ends -->
+				<a class="brand" href="admin.php" style="text-decoration: none"> <img alt="" src="img/logo20.png" /> <span>MultiHoster ACP</span></a>
 				
 			</div>
 		</div>
-   <!-- Here's all it takes to make this navigation bar. -->
-<div class="top-nav">
-   <ul id="nav_menu">
-			<li><a href="index.php">Site Index</a></li>
-			<li><a href="admin.php">Dashboard</a></li>
-			<li><a href="admin.php?act=images">Images</a></li>
-			<li><a href="admin.php?act=site_settings">Site Settings</a></li>
-			<li><a href="admin.php?act=language_settings">Language Settings</a></li>
-			<li><a href="admin.php?act=mass_email">Bulk E-Mail</a></li>
-<li class="dropdown">
-<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">User Managment <b class="caret"></b></a>
-<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-			<li><a href="admin.php?act=user_list">Members List</a></li>
-			<li><a href="admin.php?act=ban_control">Ban Control</a></li>
-</ul>
-</li>
-<li class="dropdown">
-<a id="drop2" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Logs <b class="caret"></b></a>
-<ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-			<li><a href="admin.php?act=file_logs">File Logs</a></li>
-			<li><a href="admin.php?act=robot_logs">Search Engine Logs</a></li>
-			<li><a href="admin.php?act=errlogs">PHP Error Logs</a></li>
-</ul>
-</li>
-<li class="dropdown">
-<a id="drop3" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Debug Info <b class="caret"></b></a>
-<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-			<li><a href="admin.php?act=phpinfo">PHP Information</a></li>
-      <li><a href="admin.php?act=processes">Running Processes</a></li>
-      <li><a href="admin.php?act=sysinfo">System Information</a></li>
-</ul>
-</li>
-   </ul>
-</div>
-   <!-- That's it! -->
 	</div>
 	<!-- topbar ends -->
 		<div class="container-fluid">
@@ -215,8 +160,24 @@
 						<li class="nav-header hidden-tablet">Menu</li>
 						<li><a href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Site Index</span></a></li>
 						<li><a href="admin.php"><i class="icon-book"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+						<li><a href="admin.php?act=mass_email"><i class="icon-book"></i><span class="hidden-tablet"> Bulk E-Mail</span></a></li>
 						<li><a href="admin.php?act=images"><i class="icon-picture"></i><span class="hidden-tablet"> Images</span></a></li>
+						<li class="nav-header hidden-tablet">Settings</li>
+						<li><a href="admin.php?act=site_settings"><i class="icon-book"></i><span class="hidden-tablet"> Site Settings</span></a></li>
+						<li><a href="admin.php?act=language_settings"><i class="icon-book"></i><span class="hidden-tablet"> Language Settings</span></a></li>
+						<li class="nav-header hidden-tablet">User Management</span></li>
+						<li><a href="admin.php?act=user_list"><i class="icon-book"></i><span class="hidden-tablet"> Members List</span></a></li>
+						<li><a href="admin.php?act=ban_control"><i class="icon-book"></i><span class="hidden-tablet"> Ban Control</span></a></li>
+						<li class="nav-header hidden-tablet">Logs</li>
+						<li><a href="admin.php?act=file_logs"><i class="icon-book"></i><span class="hidden-tablet"> File Logs</span></a></li>
+						<li><a href="admin.php?act=robot_logs"><i class="icon-book"></i><span class="hidden-tablet"> Search Engine Logs</span></a></li>
+						<li><a href="admin.php?act=errlogs"><i class="icon-book"></i><span class="hidden-tablet"> PHP Error Logs</span></a></li>
+						<li class="nav-header hidden-tablet"><span class="hidden-tablet"> Debug Info</li>
+						<li><a href="admin.php?act=phpinfo" target="_blank"><i class="icon-book"></i><span class="hidden-tablet"> PHP Information</span></a></li>
+      					<li><a href="admin.php?act=processes"><i class="icon-book"></i><span class="hidden-tablet"> Running Processes</span></a></li>
+      					<li><a href="admin.php?act=sysinfo"><i class="icon-book"></i><span class="hidden-tablet"> System Information</span></a></li>
 					</ul>
+
 				</div><!--/.well -->
 			</div><!--/span-->
 			<!-- left menu ends -->

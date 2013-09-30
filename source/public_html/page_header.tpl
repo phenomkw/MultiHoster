@@ -18,14 +18,14 @@
     
     <title><# PAGE_TITLE #></title>
    
-    <meta name="version" content="Mihalism Multi Host v<# VERSION #>" />
+    <meta name="version" content="MultiHoster v<# VERSION #>" />
     <meta name="description" content="<# SITE_NAME #> is an easy image hosting solution for everyone." />
     <meta name="keywords" content="image hosting, image hosting service, multiple image hosting, unlimited bandwidth, quick image hosting" />
     
     <base href="<# BASE_URL #>" />
 
 	<!-- The styles -->
-	<link id="bs-css" href="css/bootstrap-simplex.css" rel="stylesheet">
+	<link id="bs-css" href="css/bootstrap-cerulean.css" rel="stylesheet">
 	<style type="text/css">
 	  body {
 		padding-bottom: 40px;
@@ -151,11 +151,11 @@
 	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container-fluid">
-				<a class="brand" href="index.php"> <img alt="" src="img/logo20.png" /> <span><# SITE_NAME #></span></a>
+				<a class="brand" href="index.php" style="text-decoration: none"> <img alt="" src="img/logo20.png" /> <span><# SITE_NAME #></span></a>
 				<if="$mmhclass->info->is_user == true">
 				<!-- user dropdown starts -->
 								<div class="btn-group pull-right">
-								  <a class="btn btn-primary" href="profile.php?view=<# USERNAME #>" title="Your Profile"><i class="icon-user icon-white"></i> <# USERNAME #></a>
+								  <a class="btn btn-primary"><i class="icon-user icon-white"></i> <# USERNAME #></a>
 								  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href=""><span class="caret"></span></a>
 								  <ul class="dropdown-menu">
                  <if="$mmhclass->info->config['seo_urls'] == 1">
@@ -201,29 +201,6 @@
 		</endif>
 			</div>
 		</div>
-		
-   <!-- Here's all it takes to make this navigation bar. -->
-<div class="top-nav">
-   <ul id="nav_menu">
-        <li><a href="index.php">Home</a></li>
-				<if="$mmhclass->info->config['seo_urls'] == 1">
-				<li><a href="gallery.php">Public Gallery</a></li>
-				<li><a href="users.php?act=user_list">User Galleries</a></li>
-				<li><a href="random-image">Random Image</a></li>
-				<else>
-				<li><a href="gallery.php">Public Gallery</a></li>
-				<li><a href="users.php?act=user_list">Member Galleries</a></li>
-				<li><a href="index.php?do_random=true">Random Image</a>
-				</endif>
-        <li class="dropdown"><a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Webmaster Tools <b class="caret"></b></a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-        <li><a href="tools.php">Computer upload</a></li>
-        <li><a href="tools2.php">URL upload</a></li>
-        <li><a href="tools3.php">Computer & URL upload</a></li>
-        </ul></li>
-   </ul>
-</div>
-   <!-- That's it! -->
 	</div>
 	<!-- topbar ends -->
 		<div class="container-fluid">
@@ -235,16 +212,25 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">Menu</li>
 						<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Index</span></a></li>
+						<if="$mmhclass->info->is_user == true">
+						<li><a class="ajax-link" href="index.php?url=1"><i class="icon-home"></i><span class="hidden-tablet"> URL Upload</span></a></li>
+						<li><a class="ajax-link" href="index.php?zip"><i class="icon-home"></i><span class="hidden-tablet"> Zip Upload</span></a></li>
+						</endif>
+						<li class="nav-header hidden-tablet">Galleries</li>
 						<li><a class="ajax-link" href="gallery.php"><i class="icon-picture"></i><span class="hidden-tablet"> Public Gallery</span></a></li>
 						<li><a class="ajax-link" href="users.php?act=user_list"><i class="icon-picture"></i><span class="hidden-tablet"> Member Galleries</span></a></li>
 						<li><a class="ajax-link" href="index.php?do_random=true"><i class="icon-picture"></i><span class="hidden-tablet"> Random Image</span></a></li>
+						<li class="nav-header hidden-tablet">Webmaster Tools</li>
+						<li><a href="tools.php"><i class="icon-book"></i><span class="hidden-tablet"> Computer upload</span></a></li>
+        				<li><a href="tools2.php"><i class="icon-book"></i><span class="hidden-tablet"> URL upload</span></a></li>
+        				<li><a href="tools3.php"><i class="icon-book"></i><span class="hidden-tablet"> Computer & URL upload</span></a></li>
 				<if="$mmhclass->info->is_user == false">
 						<li class="nav-header hidden-tablet">Welcome Guest</li>
-						<li><a href="javascript:void(0);" onclick="toggle_lightbox('users.php?act=login', 'login_lightbox');">Log In</a></li>
 				<if="$mmhclass->info->config['seo_urls'] == 1">
 						<li><a href="register">Register</a></li>
 				<else>
-						<li><a href="users.php?act=register&amp;return=<# RETURN_URL #>">Register</a></li>
+						<li><a href="javascript:void(0);" onclick="toggle_lightbox('users.php?act=login', 'login_lightbox');"><i class="icon-book"></i><span class="hidden-tablet"> Login</span></a></li>
+						<li><a href="users.php?act=register&amp;return=<# RETURN_URL #>"><i class="icon-book"></i><span class="hidden-tablet"> Register</span></a></li>
 				</endif>
 				</endif>
 					</ul>
@@ -285,8 +271,3 @@
 
 			<div id="content" class="span10">
 			<!-- content starts -->
-
-						<div class="alert alert-block ">
-							<h4 class="alert-heading">Warning!</h4>
-							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
-						</div>

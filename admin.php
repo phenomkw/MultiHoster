@@ -1,8 +1,9 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
 	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
@@ -20,146 +21,10 @@
 	$mmhclass->templ->page_footer = $mmhclass->templ->parse_template("admin/page_footer");
 	
 	if ($mmhclass->info->is_admin == false) {
-		$mmhclass->templ->error($mmhclass->lang['002'], true);	
+		$mmhclass->templ->error($mmhclass->lang['002'], true);		
 	}
 	
 	switch ($mmhclass->input->get_vars['act']) {
-		case "filediff":
-			//$file2compare = $mmhclass->input->get_vars['file'];
-		
-			//if ($mmhclass->funcs->is_null($file2compare) == true) {
-			//	$mmhclass->templ->error($mmhclass->lang['009'], true);	
-			//} else {
-				//
-				// This file comparison system should really have file2compare
-				// checks, but hopefully a site ADMIN does not try to exploit.
-				//
-				// They are the site administrators so why exploit own site?
-				//
-				
-			//	$diff = new filediff;
-				
-			//	$svn_content = $mmhclass->funcs->get_http_content("http://mihalismmh.googlecode.com/svn/trunk/multihost/{$file2compare}", 1);
-				
-			//	$svn_filename = $mmhclass->funcs->create_tempfile($svn_content);
-			//	$svn_fcontent = file("{$mmhclass->info->root_path}source/tempfiles/{$svn_filename}");
-			
-			//	$mmhclass->funcs->destroy_tempfile($svn_filename);
-				
-			//	$local_fcontent = file("{$mmhclass->info->root_path}{$file2compare}");
-				
-			//	$output_html = $diff->inline($local_fcontent, $svn_fcontent, 2);
-					
-			//	if (count($diff->changes) >= 1) {
-			//		exit($output_html);
-			//	} else {
-			//		$mmhclass->templ->error($mmhclass->lang['486'], true);		
-			//	}
-			//}
-			break;
-		case "upgrade":
-			//~ $changedfiles = $upgrade_packs = array();
-			
-			//~ $upgradeinfo = explode(";", $mmhclass->funcs->get_http_content("http://mihalismmh.googlecode.com/svn/trunk/information/upgrades/upgradeinfo.txt", 1));
-			
-			//~ foreach ($upgradeinfo as $id => $versioninfo) {
-				//~ $version = explode(":", $versioninfo);
-				
-				//~ if (version_compare($mmhclass->info->version, $version['0'], "<") == true) {
-					//~ $upgrade_packs[] = $version;	
-				//~ }
-			//~ }
-			
-			//~ if ($mmhclass->funcs->is_null($upgrade_packs) == true) {
-				//~ $mmhclass->templ->error($mmhclass->lang['914'], true);	
-			//~ } else {
-				//~ foreach ($upgrade_packs as $pack) {
-					//~ $files = unserialize($mmhclass->funcs->get_http_content("http://mihalismmh.googlecode.com/svn/trunk/information/upgrades/{$pack['1']}/changedfiles.txt", 1));
-					
-					//~ if (is_array($files) == true) {
-						//~ $changedfiles = array_merge($changedfiles, $files);
-					//~ }
-				//~ }
-				
-				//~ $changedfiles = array_unique($changedfiles);
-				
-				//~ asort($changedfiles);
-				
-				//~ if (is_array($changedfiles) == false) {
-					//~ $mmhclass->templ->error($mmhclass->lang['378'], true);
-				//~ } else {
-					//~ foreach ($changedfiles as $filename) {
-						//~ $mmhclass->templ->templ_globals['get_whileloop'] = true;
-						
-						//~ $mmhclass->templ->templ_vars[] = array("FILENAME" => $filename);				
-						
-						//~ $mmhclass->templ->templ_globals['changed_file_list'] .= $mmhclass->templ->parse_template("admin/admin", "system_upgrade_page");
-						//~ unset($mmhclass->templ->templ_vars, $mmhclass->templ->templ_globals['get_whileloop']);
-					//~ }
-					
-					//~ $lastversion = end($upgrade_packs);
-					
-					//~ $mmhclass->templ->templ_vars[] = array(
-						//~ "NEW_VERSION" => $lastversion['0'],
-						//~ "OLD_VERSION" => $mmhclass->info->version,
-						//~ "NEW_VERSION_SHORT" => str_replace(".", NULL, $lastversion['1'])
-					//~ );
-					
-					//~ $mmhclass->templ->output("admin/admin", "system_upgrade_page");
-				//~ }
-			//~ }
-			break;
-		case "upgrade-df":
-			//~ $changedfiles = $upgrade_packs = array();
-			
-			//~ $upgradeinfo = explode(";", $mmhclass->funcs->get_http_content("http://mihalismmh.googlecode.com/svn/trunk/information/upgrades/upgradeinfo.txt", 1));
-						
-			//~ foreach ($upgradeinfo as $id => $versioninfo) {
-				//~ $version = explode(":", $versioninfo);
-				
-				//~ if (version_compare($mmhclass->info->version, $version['0'], "<") == true) {
-					//~ $upgrade_packs[] = $version;	
-				//~ }
-			//~ }
-			
-			//~ if ($mmhclass->funcs->is_null($upgrade_packs) == true) {
-				//~ exit("001");
-			//~ } else {
-				//~ if ($mmhclass->funcs->write_file("{$mmhclass->info->root_path}source/upgradeinfo/upgradeinfo.txt", implode(";", $upgradeinfo)) == false) {
-					//~ exit("003");
-				//~ }
-			
-				//~ foreach ($upgrade_packs as $pack) {
-					//~ $pack_folder = "{$mmhclass->info->root_path}source/upgradeinfo/packages/{$pack['1']}";
-					
-					//~ if (is_dir($page_folder) == false) {	
-						//~ mkdir($pack_folder);
-					//~ }
-					
-					//~ $changedfiles = unserialize($mmhclass->funcs->get_http_content("http://mihalismmh.googlecode.com/svn/trunk/information/upgrades/{$pack['1']}/changedfiles.txt", 1));
-					//~ $changedmysql = unserialize($mmhclass->funcs->get_http_content("http://mihalismmh.googlecode.com/svn/trunk/information/upgrades/{$pack['1']}/changedmysql.txt", 1));
-					
-					//~ if (is_array($changedfiles) == false || is_array($changedmysql) == false) {
-						//~ exit("002");
-					//~ } else {
-						//~ if ($mmhclass->funcs->write_file("{$pack_folder}/changedfiles.txt", serialize($changedfiles)) == false) {
-							//~ exit("003");
-						//~ }
-						
-						//~ if ($mmhclass->funcs->write_file("{$pack_folder}/changedmysql.txt", serialize($changedmysql)) == false) {
-							//~ exit("003");
-						//~ }
-					//~ }
-				//~ }	
-				
-				//~ /* Actual Upgrade Process Will Go Here */
-				
-				//~ exit("004");
-			//~ }
-			break;
-		case "upgrade-d":
-		//	$mmhclass->templ->message(sprintf($mmhclass->lang['785'], $mmhclass->info->version), true);
-			break;
 		case "phpinfo":
 			phpinfo();
 			break;
@@ -954,11 +819,11 @@
 					
 					$mmhclass->templ->templ_vars[] = array(
 						"USER_ID" => $row['user_id'],
-					  "USERNAME" => $row['username'],
-					  "IP_ADDRESS" => $row['ip_address'],
-            "EMAIL_ADDRESS" => $row['email_address'],
-					  "IP_HOSTNAME" => gethostbyaddr($row['ip_address']),
-					  "TDCLASS" => $tdclass = (($tdclass == "tdrow1") ? "tdrow2" : "tdrow1"),
+						"USERNAME" => $row['username'],
+						"IP_ADDRESS" => $row['ip_address'],
+						"EMAIL_ADDRESS" => $row['email_address'],
+						"IP_HOSTNAME" => gethostbyaddr($row['ip_address']),
+						"TDCLASS" => $tdclass = (($tdclass == "tdrow1") ? "tdrow2" : "tdrow1"),
 					 	"TIME_JOINED" => date($mmhclass->info->config['date_format'], $row['time_joined']),
 					);
 					
@@ -1477,12 +1342,10 @@ $latestVer = implode('.', $latestVer);
 
 				$mmhclass->templ->templ_vars[] = array(
 					"UP_TO_DATE" => (($mmhclass->info->new_version == true) ? "Your Version: {$curVer}<br />Latest Version: {$latestVer}" : NULL),
-          "TOTAL_UPLOADS" => $mmhclass->funcs->format_number($mmhclass->db->total_rows($mmhclass->db->query("SELECT * FROM `[1]`;", array(MYSQL_FILE_STORAGE_TABLE)))),
+					"TOTAL_UPLOADS" => $mmhclass->funcs->format_number($mmhclass->db->total_rows($mmhclass->db->query("SELECT * FROM `[1]`;", array(MYSQL_FILE_STORAGE_TABLE)))),
 					"TOTAL_MEMBERS" => $mmhclass->funcs->format_number($mmhclass->db->total_rows($mmhclass->db->query("SELECT * FROM `[1]`;", array(MYSQL_USER_INFO_TABLE)))),
-          
 				);
 				
 				$mmhclass->templ->output("admin/admin", "admin_home_page");
 	}
-
 ?>

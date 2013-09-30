@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1252856512 - Sunday, September 13, 2009, 11:41:52 AM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 	
 	require_once "./source/includes/data.php";
@@ -199,7 +200,7 @@
 		case "user_list":  case "user-list":
 			$mmhclass->templ->page_title .= $mmhclass->lang['034'];
 			
-			$sql = $mmhclass->db->query("SELECT * FROM `[1]` ORDER BY `user_id` DESC;", array(MYSQL_USER_INFO_TABLE));
+			$sql = $mmhclass->db->query("SELECT * FROM `[1]` ORDER BY `user_id` DESC LIMIT <# QUERY_LIMIT #>;", array(MYSQL_USER_INFO_TABLE));
 			
 			while ($row = $mmhclass->db->fetch_array($sql)) {
 				$mmhclass->templ->templ_globals['get_whileloop'] = true;
@@ -304,7 +305,7 @@
 			
 			
 		case "gallery": case "my-gallery":
-#		var_dump($mmhclass->input->get_vars);
+		var_dump($mmhclass->input->get_vars);
 			$mmhclass->templ->page_title .= $mmhclass->lang['033'];
 			if (isset($mmhclass->input->get_vars['usergal'])) {
 				$uname_to_id =$mmhclass->db->fetch_array($mmhclass->db->query("SELECT * FROM `[1]` WHERE `username` = '[2]' LIMIT 1;", array(MYSQL_USER_INFO_TABLE, htmlspecialchars($mmhclass->input->get_vars['usergal']))));
@@ -403,8 +404,8 @@
 					$mmhclass->templ->templ_globals['album_pulldown_whileloop'] .= $mmhclass->templ->parse_template("users", "my_gallery_page");
 					unset($mmhclass->templ->templ_vars, $mmhclass->templ->templ_globals['get_whileloop']);
 				}
-    if ($mmhclass->info->config['seo_urls'] == '1' && $mmhclass->info->user_owned_gallery == true) {
-     $pag_lnks = $mmhclass->templ->pagelinks(sprintf("%s%s", $cururl, (($mmhclass->funcs->is_null($mmhclass->input->get_vars['search']) == true) ? NULL : sprintf("&amp;search=%s", urldecode($mmhclass->input->get_vars['search'])))), $mmhclass->db->total_rows($mmhclass->db->query("SELECT * FROM `[1]` WHERE `gallery_id` = '[2]' AND `album_id` = '[3]' AND (`filename` LIKE '%[4]%' OR `file_title` LIKE '%[4]%') [[1]] ORDER BY `file_id` DESC;", array(MYSQL_FILE_STORAGE_TABLE, $mmhclass->info->gallery_owner_data['user_id'], $mmhclass->info->selected_album, urldecode($mmhclass->input->get_vars['search'])), array(($mmhclass->info->user_owned_gallery == false) ? " AND `is_private` = 0" : NULL))));
+				if ($mmhclass->info->config['seo_urls'] == '1' && $mmhclass->info->user_owned_gallery == true) {
+					$pag_lnks = $mmhclass->templ->pagelinks(sprintf("%s%s", $cururl, (($mmhclass->funcs->is_null($mmhclass->input->get_vars['search']) == true) ? NULL : sprintf("&amp;search=%s", urldecode($mmhclass->input->get_vars['search'])))), $mmhclass->db->total_rows($mmhclass->db->query("SELECT * FROM `[1]` WHERE `gallery_id` = '[2]' AND `album_id` = '[3]' AND (`filename` LIKE '%[4]%' OR `file_title` LIKE '%[4]%') [[1]] ORDER BY `file_id` DESC;", array(MYSQL_FILE_STORAGE_TABLE, $mmhclass->info->gallery_owner_data['user_id'], $mmhclass->info->selected_album, urldecode($mmhclass->input->get_vars['search'])), array(($mmhclass->info->user_owned_gallery == false) ? " AND `is_private` = 0" : NULL))));
 				}elseif ($mmhclass->info->config['seo_urls'] == '1' && $mmhclass->info->user_data['user_id'] != $mmhclass->info->selected_gallery){
 					$pag_lnks = $mmhclass->templ->pagelinks(sprintf("%s%s/%s", $cururl,$mmhclass->info->gallery_owner_data['username'], (($mmhclass->funcs->is_null($mmhclass->input->get_vars['search']) == true) ? NULL : sprintf("&amp;search=%s", urldecode($mmhclass->input->get_vars['search'])))), $mmhclass->db->total_rows($mmhclass->db->query("SELECT * FROM `[1]` WHERE `gallery_id` = '[2]' AND `album_id` = '[3]' AND (`filename` LIKE '%[4]%' OR `file_title` LIKE '%[4]%') [[1]] ORDER BY `file_id` DESC;", array(MYSQL_FILE_STORAGE_TABLE, $mmhclass->info->gallery_owner_data['user_id'], $mmhclass->info->selected_album, urldecode($mmhclass->input->get_vars['search'])), array(($mmhclass->info->user_owned_gallery == false) ? " AND `is_private` = 0" : NULL))));
 				}else{$pag_lnks = $mmhclass->templ->pagelinks(sprintf("%s%s", $mmhclass->info->gallery_url_full, (($mmhclass->funcs->is_null($mmhclass->input->get_vars['search']) == true) ? NULL : sprintf("&amp;search=%s", urldecode($mmhclass->input->get_vars['search'])))), $mmhclass->db->total_rows($mmhclass->db->query("SELECT * FROM `[1]` WHERE `gallery_id` = '[2]' AND `album_id` = '[3]' AND (`filename` LIKE '%[4]%' OR `file_title` LIKE '%[4]%') [[1]] ORDER BY `file_id` DESC;", array(MYSQL_FILE_STORAGE_TABLE, $mmhclass->info->gallery_owner_data['user_id'], $mmhclass->info->selected_album, urldecode($mmhclass->input->get_vars['search'])), array(($mmhclass->info->user_owned_gallery == false) ? " AND `is_private` = 0" : NULL))));}

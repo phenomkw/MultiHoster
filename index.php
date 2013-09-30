@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1252713557 - Friday, September 11, 2009, 07:59:17 PM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 
 	require_once "./source/includes/data.php";
@@ -61,12 +62,12 @@ checkban($_SERVER['REMOTE_ADDR']);
 
 	// Disable uploading for Guests only?
 	if ($mmhclass->info->config['useronly_uploading'] == true && $mmhclass->info->is_user == false) {
-	
 		$mmhclass->templ->templ_vars[] = array(
-						"RETURN_URL" => urldecode($mmhclass->input->get_vars['return']),
+				"RETURN_URL" => urldecode($mmhclass->input->get_vars['return']),
+				"SITE_NAME" => $mmhclass->info->config['site_name'],
+				"RANDOM_IMAGES"  => "<a href=\"viewer.php?file={$row['filename']}\"><img src=\"img.php?module=thumbnail&file={$row['filename']}\" title=\"{$row['file_title']}\" style=\"padding: 1px; max-width: 100px;max-height: 100px;\"></a>",
 		);
-		
-				$mmhclass->templ->output("home", "upl_login_page");
+			$mmhclass->templ->output("home", "upl_login_page");
 	}
 	
 	// Upload Layout Preview Lightbox
@@ -138,9 +139,11 @@ checkban($_SERVER['REMOTE_ADDR']);
         "RANDOM_IMAGES"  => "<a href=\"viewer.php?file={$row['filename']}\"><img src=\"img.php?module=thumbnail&file={$row['filename']}\" title=\"{$row['file_title']}\" style=\"padding: 1px; max-width: 100px;max-height: 100px;\"></a>",
             );}
             if ($mmhclass->funcs->is_null($mmhclass->input->get_vars['url']) == true) {
-                    $mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "normal_upload_page");
+            $mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "normal_upload_page");
             }elseif($mmhclass->funcs->is_null($mmhclass->input->get_vars['zip']) == true) {
 			$mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "zip_upload_page");
+			}elseif($mmhclass->funcs->is_null($mmhclass->input->get_vars['upl']) == true) {
+			$mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "upl_login_page");
 	    }else {$mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "url_upload_page");
 	    }unset($mmhclass->templ->templ_vars, $mmhclass->templ->templ_globals['get_whileloop']);
         }
@@ -167,6 +170,9 @@ checkban($_SERVER['REMOTE_ADDR']);
 	}elseif (isset($mmhclass->input->get_vars['zip']) == true) {
 		$mmhclass->templ->page_title = sprintf($mmhclass->lang['001'], $mmhclass->info->config['site_name']);
 		$mmhclass->templ->output("home", "zip_upload_page");
+	}elseif (isset($mmhclass->input->get_vars['upl']) == true) {
+		$mmhclass->templ->page_title = sprintf($mmhclass->lang['001'], $mmhclass->info->config['site_name']);
+		$mmhclass->templ->output("home", "upl_login_page");
 	} else {
 		$mmhclass->templ->page_title = sprintf($mmhclass->lang['001'], $mmhclass->info->config['site_name']);
 		$mmhclass->templ->output("home", "normal_upload_page");

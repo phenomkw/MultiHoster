@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1252765380 - Saturday, September 12, 2009, 10:23:00 AM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 	
 	class mmhclass_template_engine
@@ -160,8 +161,8 @@
 		{
 			if ($this->mmhclass->funcs->is_null($this->page_footer) == true) {
 				$this->templ_vars[] = array(
-          "PWRST_HTML" => $this->parse_template("modal", "pwrst_modal"),
-          "ABTCH_HTML" => $this->parse_template("modal", "about_charisma_modal"),
+					"PWRST_HTML" => $this->parse_template("modal", "pwrst_modal"),
+					"ABTCH_HTML" => $this->parse_template("modal", "about_charisma_modal"),
 					"GOOGLE_ANALYTICS_ID" => $this->mmhclass->info->config['google_analytics'],
 					"PAGE_LOAD" => substr(($this->mmhclass->funcs->microtime_float() - $this->mmhclass->info->init_time), 0, 5),	
 					"TOTAL_PAGE_VIEWS" => ((isset($this->mmhclass->info->site_cache['page_views']) == false) ? $this->mmhclass->lang['6697'] : $this->mmhclass->funcs->format_number($this->mmhclass->info->site_cache['page_views'])),
@@ -206,7 +207,7 @@
 			<html>
 				<head>
 					<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
-					<title>Fatal Error (Powered by Mihalism Multi Host)</title>
+					<title>Fatal Error (Powered by MultiHoster)</title>
 					<style type=\"text/css\">
 					    * { font-size: 100%; margin: 0; padding: 0; }
 						body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 75%; margin: 10px; background: #FFFFFF; color: #000000; }

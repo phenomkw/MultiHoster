@@ -3015,6 +3015,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar {
   color: #adafae;
+  margin-bottom: 10px;
 }
 .navbar .brand:hover {
   text-decoration: none;
