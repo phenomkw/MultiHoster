@@ -355,9 +355,10 @@
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('proxy_images', '0');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('gallery_viewing', '1');", array(MYSQL_SITE_SETTINGS_TABLE));		
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('thumbnail_type', 'jpg');", array(MYSQL_SITE_SETTINGS_TABLE));
-				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('upload_path', 'images/');", array(MYSQL_SITE_SETTINGS_TABLE)); // Secret setting to set upload path
+				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('upload_path', 'images/');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('thumbnail_width', '160');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('useronly_uploading', '0');", array(MYSQL_SITE_SETTINGS_TABLE));
+				//$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('top_menu', '0');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('max_filesize', '1075000');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('thumbnail_height', '160');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('uploading_disabled', '0');", array(MYSQL_SITE_SETTINGS_TABLE));

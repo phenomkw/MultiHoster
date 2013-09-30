@@ -140,7 +140,7 @@
 				unset($mmhclass->templ->templ_vars, $mmhclass->templ->templ_globals['get_whileloop']);
 			}
 			
-			$versioncheck = unserialize($mmhclass->funcs->get_http_content("http://mihalismmh.googlecode.com/svn/trunk/information/versioninfo.txt", 1));
+			$versioncheck = unserialize($mmhclass->funcs->get_http_content("http://www.multihosterscript.com/version/version.txt", 1));
 		
 			$mmhclass->templ->templ_globals['new_version'] = (($versioncheck !== false && version_compare($versioncheck['version'], $mmhclass->info->version, ">") == true) ? true : false);
 			
@@ -226,15 +226,10 @@
 				"SHOW_RANDOM_YES" => (($setting['show_random'] == '1') ?  "checked=\"checked\"" : NULL),
 				"SHOW_RANDOM_NO" => (($setting['show_random'] == '0') ?  "checked=\"checked\"" : NULL),
 	    // END SHOW RANDOM MOD
-        // BEGIN BACKGROUND MOD
-                "BACKGROUND_2" => (($setting['background'] == '2') ?  "checked=\"checked\"" : NULL),
-                "BACKGROUND_1" => (($setting['background'] == '1') ?  "checked=\"checked\"" : NULL),
-				"BACKGROUND_0" => (($setting['background'] == '0') ?  "checked=\"checked\"" : NULL),
-	    // END BACKGROUND MOD
-        // BEGIN WIDTH MOD
-				"WIDE_STYLE_YES" => (($setting['wide_style'] == '1') ?  "checked=\"checked\"" : NULL),
-				"WIDE_STYLE_NO" => (($setting['wide_style'] == '0') ?  "checked=\"checked\"" : NULL),
-	    // END WIDTH MOD
+        // BEGIN MENU MOD
+        //      "MENU_1" => (($setting['top_menu'] == '1') ?  "checked=\"checked\"" : NULL),
+		//		"MENU_0" => (($setting['top_menu'] == '0') ?  "checked=\"checked\"" : NULL),
+	    // END MENU MOD
 				"FB_COMM_YES" => (($setting['facebook_comments'] == '1') ?  "checked=\"checked\"" : NULL),
 				"FB_COMM_NO" => (($setting['facebook_comments'] == '0') ?  "checked=\"checked\"" : NULL),
 				"USER_MAX_SIMUL_FILES" => $setting['max_user_simul_upload'],
@@ -289,12 +284,9 @@
        // BEGIN SHOW RANDOM MOD
                 "show_random" => $mmhclass->input->post_vars['show_random'],
 	   // END SHOW RANDOM MOD
-       // BEGIN BACKGROUND MOD
-                "background" => $mmhclass->input->post_vars['background'],
-	   // END BACKGROUND MOD
-       // BEGIN WIDTH MOD
-                "wide_style" => $mmhclass->input->post_vars['wide_style'],
-	   // END WIDTH MOD
+       // BEGIN MENU MOD
+       //       "top_menu" => $mmhclass->input->post_vars['top_menu'],
+	   // END MENU MOD
 				"facebook_comments" => $mmhclass->input->post_vars['facebook_comments'],
 				"max_user_simul_upload" => $mmhclass->input->post_vars['user_simul_upload'],
 				"max_guest_simul_upload" => $mmhclass->input->post_vars['guest_simul_upload'],
