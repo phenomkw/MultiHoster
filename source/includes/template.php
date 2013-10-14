@@ -1,11 +1,10 @@
 <?php
 	// ======================================== \
-	// Package: MultiHoster
-	// Version: 6.0.0
-	// Copyright (c) 2007-2013 Mihalism Technologies
-	// Copyright (c) 2011-2013 MultiHosterScript.com
+	// Package: Mihalism Multi Host
+	// Version: 5.0.0
+	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
+	// LTE: 1252765380 - Saturday, September 12, 2009, 10:23:00 AM EDT -0400
 	// ======================================== /
 	
 	class mmhclass_template_engine
@@ -67,7 +66,7 @@
 
 				
 				$html2parse = preg_replace(array('#<([\?%])=?.*?\1>#s', '#<script\s+language\s*=\s*(["\']?)php\1\s*>.*?</script\s*>#s', '#<\?php(?:\r\n?|[ \n\t]).*?\?>#s', "#<!-- (BEGIN|END): (.*) -->#", "#<\\$(.*?)\\$>#Us"), NULL, $html2parse);
-				$html2parse = ((md5($filename) == $this->cif_check['thefile']) ? $this->bug_fix_56941($html2parse) : $html2parse);
+				
 				
 				if (strpos($html2parse, "<foreach=") == true) {
 					$parse_html2php = true;
@@ -207,7 +206,7 @@
 			<html>
 				<head>
 					<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
-					<title>Fatal Error (Powered by MultiHoster)</title>
+					<title>Fatal Error (Powered by Mihalism Multi Host)</title>
 					<style type=\"text/css\">
 					    * { font-size: 100%; margin: 0; padding: 0; }
 						body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 75%; margin: 10px; background: #FFFFFF; color: #000000; }

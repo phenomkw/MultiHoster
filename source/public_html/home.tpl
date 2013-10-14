@@ -53,31 +53,34 @@ $(function() {
 <strong>Welcome to <# SITE_NAME #>!</strong>
 						</h2>
 					</div>
-					<br/>
-					<div class="alert alert-block " style="width: 90%; margin-left: auto; margin-right: auto;">
-							<h4 class="alert-heading">Warning!</h4>
-							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
-					<if="$mmhclass->info->is_user == false">
-							<h4 class="alert-heading">Guest</h4>
-							<p>Please login or Register for a account to access all of our features.</p>
-					</endif>
-					</div>
 					<div class="box-content">
 <form name='image_uploads_form' id='upload_form' method='post' action='upload.php'>
-<table width="100%" cellpadding="2" cellspacing="1">
+<table width="100%">
 	<tr>
 		<td>
-Select an image file to upload. You are allowed to upload <b><# MAX_SIMUL_FILES #></b> image(s) at once!
-<br />
-<div id="uploader" style="width:500px;float:left;">
+		<div align="center">
+		<table border="0" width="100%">
+	<tr>
+		<td align="center">Max images per upload</td>
+		<td align="center">Max filesize per image</td>
+		<td align="center">Allowed File Extensions</td>
+	</tr>
+	<tr>
+		<td align="center"><strong><# MAX_SIMUL_FILES #></strong></td>
+		<td align="center"><strong><# MAX_FILESIZE #></strong></td>
+		<td align="center"><strong><# FILE_EXTENSIONS #></strong></td>
+	</tr>
+	</table>
+		</div>
+<br/>
+<div id="uploader" style="width:100%;float:center; height:100px">
 		<center><br/><br/><b>If you see this longer than 20 seconds, your browser doesn't have Flash, Silverlight, Gears, BrowserPlus or HTML5 support.<br/> Or some other problem</p></b></center>
 </div>
 </td>
-	<td valign="top">
+</tr>
+<tr>
+<td colspan="2" align="center">
 <input type="hidden" name="session" value="<# RAND_SES_VAR #>" />
-Max filesize is set at: <strong><# MAX_FILESIZE #></strong> per image file.
-<br />
-Allowed File Extensions: <# FILE_EXTENSIONS #>
 <br />
 <br />
         <if="$mmhclass->info->is_user == true">
@@ -88,7 +91,7 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 	  </endif>
 	  <if="$mmhclass->info->is_user == true && $mmhclass->templ->templ_globals['hide_upload_to'] == false">
                    &bull; Upload To: 
-                   <select name="upload_to" style="width: 220px;">
+                   <select name="upload_to" style="width: 300px;">
                        <option value="0" selected="selected">Root Album</option>
                           <while id="albums_pulldown_whileloop">
                             <option value="<# ALBUM_ID #>">&bull; <# ALBUM_NAME #></option>
@@ -102,7 +105,7 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
                  <br/>
                  <else>
                  &bull; Resize Images: 
-                <select name="image_resize" style="width: 220px;">
+                <select name="image_resize" style="width: 300px;">
 			<option value="0" selected="selected">Do Not Resize</option>
 			<option disabled="disabled">----</option>
             <option value="1">100x75 (avatar)</option>
@@ -114,16 +117,20 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 			<option value="7">1280x1024 (19-inch monitor)</option>
 			<option value="8">1600x1200 (21-inch monitor)</option>
                 </select>
-        </div><br /><br /></endif>
-	<if="$mmhclass->info->config['recaptcha_guest'] == '1' && $mmhclass->info->is_user == false">
-                <div style="width:100%;text-align:left;"><span>Security Code:</span><# CAPTCHA_CODE #></div>
-                <br /><br />
+        </div></endif>
+		<if="$mmhclass->info->config['recaptcha_guest'] == '1' && $mmhclass->info->is_user == false">
+                <# CAPTCHA_CODE #>
+                <br/>
+                <br/>
 		<a alt="Upload" valign="center" title="Upload" class="btn button-primary" onclick="checknload();"  /><i class="icon icon-green icon-arrowthick-n"></i> Start Uploading</a>
 			<else>
+			<br/>
+            <br/>
 		<button type="submit" alt="Upload" valign="center" title="Upload" class="btn button-primary" /><i class="icon icon-green icon-arrowthick-n"></i> Start Uploading</button>
 	 </endif>
 	<a class="btn button-primary" href="index.php"><i class="icon-remove"></i> Clear</a>
 	<br/><p style="color: red;" id="captchaStatus">&nbsp;</p>
+
 </td>
 </tr>
 </table>
@@ -132,36 +139,6 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 					</div>
 				</div>
 			</div>
-<if="$mmhclass->info->config['show_random'] == '1'">
-			<div class="row-fluid">
-				<div class="box span12">
-					<div class="box-header well">
-						<h2><i class="icon-info-sign"></i> Random Images</h2>
-					</div>
-					<div class="box-content">
-<table width="100%">
-
-	<tr>		<td><div id="rnd_imgs"><center>    <while id="random_images_whileloop">
-    <# RANDOM_IMAGES #>
-    </endwhile></center></div>
-    <script type="text/javascript">
-      TopUp.addPresets({
-        "#rnd_imgs a": {
-          title: "Gallery {alt} ({current} of {total})",
-          group: "rnd_imgs",
-	  layout: "quicklook",
-          readAltText: 1,
-          shaded: 1
-        }
-      });
-    </script>
-</td></tr></table>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-</endif>
-
 </template>
 <!-- END: NORMAL UPLOAD PAGE -->
 
@@ -563,15 +540,7 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 						<strong>Welcome to <# SITE_NAME #>!</strong>
 						</h2>
 					</div>
-					<br/>
-					<div class="alert alert-block " style="width: 90%; margin-left: auto; margin-right: auto;">
-							<h4 class="alert-heading">Warning!</h4>
-							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
-					<if="$mmhclass->info->is_user == false">
-							<h4 class="alert-heading">Guest</h4>
-							<p>Sorry, but uploading is restricted to registered users only. Please login with your Username and Password..</p>
-					</endif>
-					</div>						
+					<br/>						
 		<div class="container-fluid">
 			
 			<div class="row-fluid">
@@ -602,38 +571,37 @@ Allowed File Extensions: <# FILE_EXTENSIONS #>
 				</div><!--/span-->
 			</div><!--/row-->
 				</div><!--/fluid-row-->
-				
-				</div>
-						</div>
-<if="$mmhclass->info->config['show_random'] == '1'">
-			<div class="row-fluid">
+				</div></div>
+				<div class="row-fluid">
 				<div class="box span12">
 					<div class="box-header well">
-						<h2><i class="icon-info-sign"></i> Random Images</h2>
+						<h2><i class="icon-home"></i>
+						<strong><# SITE_NAME #> Members Information!</strong>
+						</h2>
 					</div>
-					<div class="box-content">
-<table width="100%">
-
-	<tr>		<td><div id="rnd_imgs"><center>    <while id="random_images_whileloop">
-    <# RANDOM_IMAGES #>
-    </endwhile></center></div>
-    <script type="text/javascript">
-      TopUp.addPresets({
-        "#rnd_imgs a": {
-          title: "Gallery {alt} ({current} of {total})",
-          group: "rnd_imgs",
-	  layout: "quicklook",
-          readAltText: 1,
-          shaded: 1
-        }
-      });
-    </script>
-</td></tr></table>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-</endif>
-
+					<br/>						
+		<div class="container-fluid">
+			
+			<div class="row-fluid">
+<table border="0" width="100%">
+	<tr>
+		<td align="center"><strong><# SITE_NAME #> Galleries</strong></td>
+		<td align="center"><strong>Extra information</strong></td>
+	</tr>
+	<tr>
+		<td align="center">Create your own galleries at <# SITE_NAME #> free of charge.<br/>
+		Unlimited galleries, unlimited upload and unlimited views.<br/>
+		</td>
+		<td align="center">By uploading your files to <# SITE_NAME #> you agree to our <a href="info.php?act=rules">ToS</a><br/><br/>
+		Max filesize per image <# MAX_FILESIZE #><br/>
+		Allowed File Extensions <# FILE_EXTENSIONS #><br/><br/>
+		If your filetype is not supported, please send an email using the <a href="contact.php?act=contact_us">Contact Us</a> and we will look into the matter. 
+		</td>
+	</tr>
+</table>
+								</div><!--/span-->
+			</div><!--/row-->
+				</div><!--/fluid-row--></div>
+						</div>
 </template>
 <!-- END: USER UPLOAD LOGIN PAGE -->

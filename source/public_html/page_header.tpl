@@ -25,7 +25,7 @@
     <base href="<# BASE_URL #>" />
 
 	<!-- The styles -->
-	<link id="bs-css" href="css/bootstrap-cerulean.css" rel="stylesheet">
+	<link id="bs-css" href="css/bootstrap-simplex.css" rel="stylesheet">
 	<style type="text/css">
 	  body {
 		padding-bottom: 40px;
@@ -203,6 +203,14 @@
 		</div>
 	</div>
 	<!-- topbar ends -->
+						<div class="alert alert-block " style="width: 90%; margin-left: auto; margin-right: auto;">
+							<h4 class="alert-heading">Warning!</h4>
+							<p>This version is in Alpha testing, there will more than likey be a few bugs so please don't expect too much right now. Thanks.</p>
+					<if="$mmhclass->info->is_user == false">
+							<h4 class="alert-heading">Guest</h4>
+							<p>Please login or Register for a account to access all of our features.</p>
+					</endif>
+					</div>
 		<div class="container-fluid">
 		<div class="row-fluid">
 
@@ -210,22 +218,22 @@
 			<div class="span2 main-menu-span">
 				<div class="well nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li class="nav-header hidden-tablet">Menu</li>
+						<li class="nav-header hidden-tablet"><i class="icon-info-sign"></i> Menu</li>
 						<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Index</span></a></li>
 						<if="$mmhclass->info->is_user == true">
 						<li><a class="ajax-link" href="index.php?url=1"><i class="icon-home"></i><span class="hidden-tablet"> URL Upload</span></a></li>
 						<li><a class="ajax-link" href="index.php?zip"><i class="icon-home"></i><span class="hidden-tablet"> Zip Upload</span></a></li>
 						</endif>
-						<li class="nav-header hidden-tablet">Galleries</li>
+						<li class="nav-header hidden-tablet"><i class="icon-info-sign"></i> Galleries</li>
 						<li><a class="ajax-link" href="gallery.php"><i class="icon-picture"></i><span class="hidden-tablet"> Public Gallery</span></a></li>
 						<li><a class="ajax-link" href="users.php?act=user_list"><i class="icon-picture"></i><span class="hidden-tablet"> Member Galleries</span></a></li>
 						<li><a class="ajax-link" href="index.php?do_random=true"><i class="icon-picture"></i><span class="hidden-tablet"> Random Image</span></a></li>
-						<li class="nav-header hidden-tablet">Webmaster Tools</li>
+						<li class="nav-header hidden-tablet"><i class="icon-info-sign"></i> Webmaster Tools</li>
 						<li><a href="tools.php"><i class="icon-book"></i><span class="hidden-tablet"> Computer upload</span></a></li>
         				<li><a href="tools2.php"><i class="icon-book"></i><span class="hidden-tablet"> URL upload</span></a></li>
         				<li><a href="tools3.php"><i class="icon-book"></i><span class="hidden-tablet"> Computer & URL upload</span></a></li>
 				<if="$mmhclass->info->is_user == false">
-						<li class="nav-header hidden-tablet">Welcome Guest</li>
+						<li class="nav-header hidden-tablet"><i class="icon-info-sign"></i> Welcome Guest</li>
 				<if="$mmhclass->info->config['seo_urls'] == 1">
 						<li><a href="register">Register</a></li>
 				<else>
@@ -233,11 +241,28 @@
 						<li><a href="users.php?act=register&amp;return=<# RETURN_URL #>"><i class="icon-book"></i><span class="hidden-tablet"> Register</span></a></li>
 				</endif>
 				</endif>
+						<if="$mmhclass->info->config['show_random'] == '1'">
+						<li class="nav-header hidden-tablet"><i class="icon-info-sign"></i> Random Image</li>
+    					<li><a></a></li>
+    					<li id="rnd_imgs"><br/><center><while id="random_images_whileloop">
+    					<# RANDOM_IMAGES #>
+    					</endwhile></center>
+    					<script type="text/javascript">
+      					TopUp.addPresets({
+        				"#rnd_imgs a": {
+          				title: "Gallery {alt} ({current} of {total})",
+          				group: "rnd_imgs",
+	  					layout: "quicklook",
+          				readAltText: 1,
+          				shaded: 0}
+      					});
+    				</script><br/></li>
+    				</endif>
 					</ul>
 				</div><!--/.well -->
 			</div><!--/span-->
 			<!-- left menu ends -->
-			
+
 			<noscript>
 				<div class="alert alert-block span10">
 					<h4 class="alert-heading">Warning!</h4>

@@ -1,11 +1,10 @@
 <?php
 	// ======================================== \
-	// Package: MultiHoster
-	// Version: 6.0.0
-	// Copyright (c) 2007-2013 Mihalism Technologies
-	// Copyright (c) 2011-2013 MultiHosterScript.com
+	// Package: Mihalism Multi Host
+	// Version: 5.0.0
+	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
+	// LTE: 1252976529 - Monday, September 14, 2009, 09:02:09 PM EDT -0400
 	// ======================================== /
 	
 	class mmhclass_mysql_driver
@@ -16,7 +15,7 @@
 		function connect($host = MYSQL_DEFAULT_CONNECT_HOST, $username, $password, $database, $port = MYSQL_DEFAULT_CONNECT_PORT, $boolerror = false)
 		{
 			if (USE_MYSQL_LIBRARY == false) {
-				$this->mmhclass->templ->fatal_error("Sorry, but Mihalism Multi Host will not work without MySQL loaded as a PHP extension.");
+				$this->mmhclass->templ->fatal_error("Sorry, but MultiHoster 6.0.0-Alpha will not work without MySQL loaded as a PHP extension.");
 			} else {
 				$connection_id = mysql_connect("{$host}:{$port}", $username, $password, false);
 				

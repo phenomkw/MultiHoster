@@ -4,7 +4,7 @@
 	File Comparison System
 	
 	Created by: Ross Scrivener (www.scrivna.com)
-	Enhanced by: Mihalism Technologies
+	Enhanced by: Mihalism Technologies (www.mihalism.net)
 */
 
 class filediff 
@@ -225,7 +225,7 @@ class filediff
 				{$html}
 				<div class=\"copyright\">
 					File Comparison System by <a href=\"http://scrivna.com/\">Ross Scrivener</a> - 
-					Enhanced by Mihalism Technologies
+					Enhanced by <a href=\"http://www.mihalism.net/\">Mihalism Technologies</a>
 				</div>
 			</body>
 		</html>";	

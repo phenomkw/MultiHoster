@@ -16,3 +16,4 @@ RewriteRule ^user-gallery/([\w]*)/([\w]*)(/?)([\d]*)(/?)$ /users.php?act=gallery
 RewriteRule ^user-gallery/([\w]*)(/*)$ /users.php?act=gallery&usergal=$1 [L]
 RewriteRule ^profile/(.*)$ /profile.php?view=$1 [L]
 RewriteRule ^(.*)\.html$ /viewer.php?file=$1 [L]
+AddHandler application/x-httpd-php52 .php .php5 .php4 .php3

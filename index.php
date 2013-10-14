@@ -65,7 +65,8 @@ checkban($_SERVER['REMOTE_ADDR']);
 		$mmhclass->templ->templ_vars[] = array(
 				"RETURN_URL" => urldecode($mmhclass->input->get_vars['return']),
 				"SITE_NAME" => $mmhclass->info->config['site_name'],
-				"RANDOM_IMAGES"  => "<a href=\"viewer.php?file={$row['filename']}\"><img src=\"img.php?module=thumbnail&file={$row['filename']}\" title=\"{$row['file_title']}\" style=\"padding: 1px; max-width: 100px;max-height: 100px;\"></a>",
+				"MAX_FILESIZE" => $mmhclass->image->format_filesize($mmhclass->info->config['max_filesize']),
+				"FILE_EXTENSIONS" => $file_extensions,
 		);
 			$mmhclass->templ->output("home", "upl_login_page");
 	}
@@ -83,7 +84,8 @@ checkban($_SERVER['REMOTE_ADDR']);
 		
 	// Normal and URL upload page
 	$last_extension = end($mmhclass->info->config['file_extensions']);
-  // Required Stuff for Uploadify 
+	
+	// Required Stuff for Uploadify 
 	foreach ($mmhclass->info->config['file_extensions'] as $this_extension) {
 		$file_extensions .= sprintf((($last_extension == $this_extension) ? "{$mmhclass->lang['003']} .%s" : ".%s, "), strtoupper($this_extension));
 		$allowed_file_extensions .= $this_extension.',';
@@ -98,7 +100,8 @@ checkban($_SERVER['REMOTE_ADDR']);
 		$user_var = 9;
 		$maximum_files = 1000;
 	}
-	 // Required Stuff for Uploadify 	
+	 // Required Stuff for Uploadify 
+	 
 	/* "Upload To" addon developed by Josh D. of www.hostmine.us */
 	if ($mmhclass->info->is_user == true) {
 		$sql = $mmhclass->db->query("SELECT * FROM `[1]` WHERE `gallery_id` = '[2]' LIMIT 50;", array(MYSQL_GALLERY_ALBUMS_TABLE, $mmhclass->info->user_data['user_id']));
@@ -126,9 +129,9 @@ checkban($_SERVER['REMOTE_ADDR']);
 			}
 		}
 	}
-      /* Random Images Mod by Josh D. */
-
-      $sql = $mmhclass->db->query("SELECT * FROM `mmh_file_storage` WHERE `is_private` = '0' AND `gallery_id` = '0' ORDER BY RAND() LIMIT 9;");
+    
+	/* Random Images Mod by Josh D. */
+	$sql = $mmhclass->db->query("SELECT * FROM `mmh_file_storage` WHERE `is_private` = '0' AND `gallery_id` = '0' ORDER BY RAND() LIMIT 4;");
         while ($row = $mmhclass->db->fetch_array($sql)) {
             $mmhclass->templ->templ_globals['get_whileloop']['random_images_whileloop'] = true;
 	    if ($mmhclass->info->config['seo_urls'] == '1') {
@@ -136,16 +139,12 @@ checkban($_SERVER['REMOTE_ADDR']);
         "RANDOM_IMAGES"  => "<a href=\"{$row['filename']}\"><img src=\"thumb.{$row['filename']}\" title=\"{$row['file_title']}\" style=\"padding: 1px; max-width: 100px;max-height: 100px;\"></a>",
             ); } else {
 	      $mmhclass->templ->templ_vars[] = array(
-        "RANDOM_IMAGES"  => "<a href=\"viewer.php?file={$row['filename']}\"><img src=\"img.php?module=thumbnail&file={$row['filename']}\" title=\"{$row['file_title']}\" style=\"padding: 1px; max-width: 100px;max-height: 100px;\"></a>",
+        "RANDOM_IMAGES"  => "<a href=\"viewer.php?file={$row['filename']}\"><img src=\"img.php?module=thumbnail&file={$row['filename']}\" title=\"{$row['file_title']}\" style=\"padding: 1px; max-width: 200px;max-height: 200px;\"></a>",
             );}
-            if ($mmhclass->funcs->is_null($mmhclass->input->get_vars['url']) == true) {
-            $mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "normal_upload_page");
-            }elseif($mmhclass->funcs->is_null($mmhclass->input->get_vars['zip']) == true) {
-			$mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "zip_upload_page");
-			}elseif($mmhclass->funcs->is_null($mmhclass->input->get_vars['upl']) == true) {
-			$mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "upl_login_page");
-	    }else {$mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", "url_upload_page");
-	    }unset($mmhclass->templ->templ_vars, $mmhclass->templ->templ_globals['get_whileloop']);
+			//Changed this to show on the 3 home ID's (url,zip,normal) it needs to be added to UPL_login_page for home ID. 
+			//would also like to have to show on other pages as well.
+			$mmhclass->templ->templ_globals['random_images_whileloop'] .= $mmhclass->templ->parse_template("home", $template_id);
+			unset($mmhclass->templ->templ_vars, $mmhclass->templ->templ_globals['get_whileloop']);
         }
 
 	$mmhclass->templ->templ_vars[] = array(

@@ -1,15 +1,14 @@
 <?php
 	// ======================================== \
-	// Package: MultiHoster
-	// Version: 6.0.0
-	// Copyright (c) 2007-2013 Mihalism Technologies
-	// Copyright (c) 2011-2013 MultiHosterScript.com
+	// Package: Mihalism Multi Host
+	// Version: 5.0.0
+	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
+	// LTE: 1253491684 - Sunday, September 20, 2009, 08:08:04 PM EDT -0400
 	// ======================================== /
 	
 	// ======================================== \
-	// Written by: Mihalism Technologies
+	// Written by: Mihalism Technologies (www.mihalism.net)
 	// Contributions by: Michael Manley (mmanley@nasutek.com)
 	//
 	// Unix/Linux Functions based off: Debian GNU/Linux 5.0
