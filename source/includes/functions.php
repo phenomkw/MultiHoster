@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1253908615 - Friday, September 25, 2009, 03:56:55 PM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 	
 	class mmhclass_core_functions
@@ -22,7 +23,7 @@
 			if (is_array($array) == true && $this->is_null($array) == false) {
 				$array = array_change_key_case($array);
 				
-				// Mihalism Multi Host now sets input data as strings.
+				// MultiHoster now sets input data as strings.
 				// This is done so that it can work with PHP 6.0.0 builds.
 				
 				foreach ($array as $key => $value) {
@@ -295,7 +296,7 @@
 		}
 		
    // BEGIN SHORT_URL MOD   
-// original PHP script by Quentin Zervaas modfied for Mihalism Multi Host Bit.ly and ADF.ly by TheKPM
+// original PHP script by Quentin Zervaas modfied for MultiHoster Bit.ly and ADF.ly by TheKPM
    
 		function shortUrl($longUrl)
 		{

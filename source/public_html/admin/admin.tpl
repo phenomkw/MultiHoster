@@ -1341,13 +1341,8 @@ The following are all <a href="http://www.php.net/errorfunc">PHP errors</a> that
 						  </thead> 
 						  <tbody>
 			<tr>
-            	<td style="width: 38%;"><span>Change Backgrounds:</span> <br /> <div class="explain">Pick the background you would like to use with the main layout.</div></td> 
-            	<td class="center" valign="top"><input type="radio" value="2" name="background" <# BACKGROUND_2 #> /> Grundge <input type="radio" value="1" name="background" <# BACKGROUND_1 #> /> Dots <input type="radio" value="0" name="background" <# BACKGROUND_0 #> /> Default</td>
-			</tr>
-			<tr>
-            	<td style="width: 38%;"><span>Frontpage display width:</span> <br /> <div class="explain">Change the width of the website.<br />More options will be added at a latter time.<br /><strong>Default:</strong>972 <strong>Wide:</strong>1024</div></td> 
-            	<td class="center" valign="top"><input type="radio" value="1" name="wide_style" <# WIDE_STYLE_YES #> /> Wide Style <input type="radio" value="0" name="wide_style" <# WIDE_STYLE_NO #> /> Default Style</td>
-			</tr>
+           <td style="width: 38%;"><span>Main Menu:</span> <br /> <div class="explain">Moves the main menu from SIDE(Default) to the TOP.</div></td> 
+-              <td class="center" valign="top"><input type="radio" value="1" name="top_menu" <# MENU_1 #> /> Top <input type="radio" value="0" name="top_menu" <# MENU_0 #> /> Default</td> </tr>
 			</tbody>
 		</table>	
 							</div>

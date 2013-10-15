@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1252697593 - Friday, September 11, 2009, 03:33:13 PM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 	
 	require_once "./source/includes/data.php";
@@ -357,6 +358,7 @@
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('upload_path', 'images/');", array(MYSQL_SITE_SETTINGS_TABLE)); // Secret setting to set upload path
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('thumbnail_width', '160');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('useronly_uploading', '0');", array(MYSQL_SITE_SETTINGS_TABLE));
+				//$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('top_menu', '0');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('max_filesize', '1075000');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('thumbnail_height', '160');", array(MYSQL_SITE_SETTINGS_TABLE));
 				$mmhclass->db->install_queries[] = array("INSERT INTO `[1]` (`config_key`, `config_value`) VALUES ('uploading_disabled', '0');", array(MYSQL_SITE_SETTINGS_TABLE));

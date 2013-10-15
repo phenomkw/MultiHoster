@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1251326120 - Wednesday, August 26, 2009, 06:35:20 PM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 
 	require_once "./source/includes/data.php";

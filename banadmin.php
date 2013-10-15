@@ -1,5 +1,12 @@
 <?php
-// banadmin.php
+	// ======================================== \
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
+	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
+	// ======================================== /
 
 // include the files
 include "./source/includes/config.php";

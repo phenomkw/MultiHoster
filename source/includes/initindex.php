@@ -1,10 +1,11 @@
 <?php
 	// ======================================== \
-	// Package: Mihalism Multi Host
-	// Version: 5.0.0
-	// Copyright (c) 2007, 2008, 2009 Mihalism Technologies
+	// Package: MultiHoster
+	// Version: 6.0.0
+	// Copyright (c) 2007-2013 Mihalism Technologies
+	// Copyright (c) 2011-2013 MultiHosterScript.com
 	// License: http://www.gnu.org/licenses/gpl.txt GNU Public License
-	// LTE: 1254301575 - Wednesday, September 30, 2009, 05:06:15 AM EDT -0400
+	// LTE: 1253515339 - Monday, September 21, 2009, 02:42:19 AM EDT -0400
 	// ======================================== /
 	
 	/* List of language files editable by language editor. */
@@ -29,7 +30,7 @@
 		17 => "profile.php",
 	);
 	
-	/* List of template files used by Mihalism Multi Host.
+	/* List of template files used by MultiHoster.
 	The list is not really implemented in any features yet,
 	it's just in this file so when it is, we are ready. */
 	
@@ -58,7 +59,7 @@
 	
 	/* Disabling spider logging can speed up large hosts. */
 	
-	define("LOG_ROBOTS", true);
+	define("LOG_ROBOTS", false);
 	
 	/* Versions. */
 	
@@ -67,7 +68,7 @@
 	define("PHPVERSION", PHP_VERSION);
 	
 	/* Just to shut up a PHP error about timezone not being set.
-	Mihalism Multi Host only sets the timezone below if there
+	MultiHoster only sets the timezone below if there
 	is not any already configured to be used in php.ini file. */
 	
 	define("DEFAULT_TIME_ZONE", "GMT");	
